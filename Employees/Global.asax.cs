@@ -20,6 +20,15 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(() => Container ?? IoC.Container));
+
+            IoC.Container.Configure(cfg =>
+            {
+                cfg.Scan(scan =>
+                {
+                    scan.TheCallingAssembly();
+                    scan.WithDefaultConventions();
+                });
+            });
         }
 
         public void Application_BeginRequest()
