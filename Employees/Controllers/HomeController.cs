@@ -1,15 +1,21 @@
 ﻿namespace Employees.Controllers
 {
     using System.Diagnostics;
+    using System.Linq;
     using System.Web.Mvc;
+    using Infrastructure;
 
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
         private readonly IFooDefaultConventions _fooDefaultConventions;
 
-        public HomeController(IFooDefaultConventions fooDefaultConventions)
+        public HomeController(IFooDefaultConventions fooDefaultConventions, ApplicationDbContext context)
         {
             _fooDefaultConventions = fooDefaultConventions;
+            _context = context;
+
+            var test = _context.Employees.ToList();
         }
 
         public ActionResult Index()
