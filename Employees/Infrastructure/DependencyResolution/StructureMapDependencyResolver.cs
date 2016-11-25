@@ -1,4 +1,4 @@
-﻿namespace Employees.Infrastructure
+﻿namespace Employees.Infrastructure.DependencyResolution
 {
     using System;
     using System.Collections.Generic;

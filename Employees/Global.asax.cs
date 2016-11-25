@@ -3,7 +3,7 @@
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
-    using Infrastructure;
+    using Infrastructure.DependencyResolution;
     using StructureMap;
 
     public class MvcApplication : HttpApplication

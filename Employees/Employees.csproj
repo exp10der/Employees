@@ -139,9 +139,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
-    <Compile Include="Infrastructure\ControllerConvention.cs" />
-    <Compile Include="Infrastructure\IoC.cs" />
-    <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
+    <Compile Include="Infrastructure\DependencyResolution\ControllerConvention.cs" />
+    <Compile Include="Infrastructure\DependencyResolution\IoC.cs" />
+    <Compile Include="Infrastructure\DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
