@@ -3,6 +3,7 @@
     using System.Diagnostics;
     using System.Linq;
     using System.Web.Mvc;
+    using DelegateDecompiler;
     using Infrastructure;
 
     public class HomeController : Controller
@@ -15,7 +16,7 @@
             _fooDefaultConventions = fooDefaultConventions;
             _context = context;
 
-            var test = _context.Employees.ToList();
+            var test = _context.Employees.Decompile().ToList();
         }
 
         public ActionResult Index()
