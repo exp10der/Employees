@@ -4,6 +4,7 @@
     using System.Web.Mvc;
     using System.Web.Routing;
     using Infrastructure.DependencyResolution;
+    using Infrastructure.Mapping;
     using StructureMap;
 
     public class MvcApplication : HttpApplication
@@ -16,6 +17,7 @@
 
         protected void Application_Start()
         {
+            AutoMapperInitializer.Initialize();
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new RazorViewEngine());
 
