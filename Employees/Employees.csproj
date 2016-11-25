@@ -117,7 +117,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ControllerConvention.cs" />
     <Compile Include="Infrastructure\IoC.cs" />
+    <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
