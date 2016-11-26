@@ -149,6 +149,7 @@
     <Compile Include="Infrastructure\ApplicationDbContext.cs" />
     <Compile Include="Infrastructure\DependencyResolution\ControllerConvention.cs" />
     <Compile Include="Infrastructure\DependencyResolution\IoC.cs" />
+    <Compile Include="Infrastructure\DependencyResolution\MediatorRegistry.cs" />
     <Compile Include="Infrastructure\DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="Infrastructure\Mapping\AutoMapperInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

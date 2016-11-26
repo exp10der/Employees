@@ -33,6 +33,8 @@
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
                 });
+
+                cfg.AddRegistry(new MediatorRegistry());
             });
         }
 
