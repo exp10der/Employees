@@ -1,8 +1,8 @@
 ﻿namespace Employees.Features.Home
 {
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using AutoMapper;
     using Infrastructure;
     using MediatR;
 
@@ -29,7 +29,8 @@
 
             public async Task<List<Model>> Handle(Query message)
             {
-                throw new NotImplementedException();
+                return await _context.Employees
+                    .ProjectToListAsync<Model>();
             }
         }
     }
