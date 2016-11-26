@@ -1,7 +1,32 @@
-﻿
+﻿@using Employees.Features;
+@using Employees.Features.Home;
+
+@model IList<Index.Model>
+
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Full Name
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.FullName)
+            </td>
+        </tr>
+    }
+</table>
