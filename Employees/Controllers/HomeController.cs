@@ -1,6 +1,7 @@
 ﻿namespace Employees.Controllers
 {
     using System;
+    using System.Diagnostics;
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using Features.Home;
@@ -31,9 +32,11 @@
         [ValidateAntiForgeryToken]
         public ActionResult Create(Create.Command model)
         {
-            _mediator.Send(model);
+            Debug.Print(ModelState.IsValid.ToString());
 
             throw new NotImplementedException();
+
+            _mediator.Send(model);
         }
     }
 }

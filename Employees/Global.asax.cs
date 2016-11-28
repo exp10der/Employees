@@ -38,7 +38,7 @@
 
                 cfg.AddRegistry(new MediatorRegistry());
                 cfg.For<ModelValidatorProvider>().Use<FluentValidationModelValidatorProvider>();
-                cfg.For<IValidatorFactory>().Use<ValidatorFactory>();
+                cfg.For<IValidatorFactory>().Use(new ValidatorFactory(() => Container ?? IoC.Container));
             });
         }
 

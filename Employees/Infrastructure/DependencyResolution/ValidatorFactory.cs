@@ -6,15 +6,16 @@
 
     public class ValidatorFactory : ValidatorFactoryBase
     {
-        public IContainer Container
+        private readonly Func<IContainer> _container;
+
+        public ValidatorFactory(Func<IContainer> container)
         {
-            get { throw new NotImplementedException("Need add Property Injection"); }
-            set { throw new NotImplementedException("Need add Property Injection"); }
+            _container = container;
         }
 
         public override IValidator CreateInstance(Type validatorType)
         {
-            return Container.TryGetInstance(validatorType) as IValidator;
+            return _container().TryGetInstance(validatorType) as IValidator;
         }
     }
 }
