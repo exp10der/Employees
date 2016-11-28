@@ -147,6 +147,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Domain\Employee.cs" />
+    <Compile Include="Features\Home\Create.cs" />
     <Compile Include="Features\Home\Index.cs" />
     <Compile Include="Features\Home\MappingProfile.cs" />
     <Compile Include="Global.asax.cs">
