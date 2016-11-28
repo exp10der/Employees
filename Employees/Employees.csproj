@@ -166,7 +166,7 @@
     <Compile Include="Infrastructure\DependencyResolution\IoC.cs" />
     <Compile Include="Infrastructure\DependencyResolution\MediatorRegistry.cs" />
     <Compile Include="Infrastructure\DependencyResolution\StructureMapDependencyResolver.cs" />
-    <Compile Include="Infrastructure\DependencyResolution\StructureMapValidatorFactory.cs" />
+    <Compile Include="Infrastructure\DependencyResolution\ValidatorFactory.cs" />
     <Compile Include="Infrastructure\Mapping\AutoMapperInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

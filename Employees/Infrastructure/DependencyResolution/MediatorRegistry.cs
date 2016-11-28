@@ -1,5 +1,6 @@
 ﻿namespace Employees.Infrastructure.DependencyResolution
 {
+    using FluentValidation;
     using MediatR;
     using StructureMap;
 
@@ -14,6 +15,8 @@
 
                 scan.AddAllTypesOf(typeof(IRequestHandler<,>));
                 scan.AddAllTypesOf(typeof(IAsyncRequestHandler<,>));
+                scan.AddAllTypesOf(typeof(IValidator<>));
+
                 scan.WithDefaultConventions();
             });
 

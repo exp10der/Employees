@@ -4,7 +4,7 @@
     using FluentValidation;
     using StructureMap;
 
-    public class StructureMapValidatorFactory : ValidatorFactoryBase
+    public class ValidatorFactory : ValidatorFactoryBase
     {
         public IContainer Container
         {

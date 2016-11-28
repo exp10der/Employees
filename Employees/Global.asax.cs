@@ -3,6 +3,8 @@
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
+    using FluentValidation;
+    using FluentValidation.Mvc;
     using Infrastructure.DependencyResolution;
     using Infrastructure.Mapping;
     using StructureMap;
@@ -35,6 +37,8 @@
                 });
 
                 cfg.AddRegistry(new MediatorRegistry());
+                cfg.For<ModelValidatorProvider>().Use<FluentValidationModelValidatorProvider>();
+                cfg.For<IValidatorFactory>().Use<ValidatorFactory>();
             });
         }
 

@@ -2,11 +2,23 @@
 {
     using AutoMapper;
     using Domain;
+    using FluentValidation;
     using Infrastructure;
     using MediatR;
 
     public class Create
     {
+        public class Validator : AbstractValidator<Command>
+        {
+            public Validator()
+            {
+                RuleFor(m => m.UserName).NotNull().Length(3, 50);
+                RuleFor(m => m.FirstName).NotNull().Length(3, 50);
+                RuleFor(m => m.LastName).NotNull().Length(3, 50);
+                RuleFor(m => m.Email).NotNull();
+            }
+        }
+
         public class Command : IRequest
         {
             public string UserName { get; set; }
