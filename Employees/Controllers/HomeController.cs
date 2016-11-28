@@ -1,5 +1,6 @@
 ﻿namespace Employees.Controllers
 {
+    using System;
     using System.Threading.Tasks;
     using System.Web.Mvc;
     using Features.Home;
@@ -19,6 +20,20 @@
             var model = await _mediator.SendAsync(new Index.Query());
 
             return View(model);
+        }
+
+        public ActionResult Create()
+        {
+            return View(new Create.Command());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Create.Command model)
+        {
+            _mediator.Send(model);
+
+            throw new NotImplementedException();
         }
     }
 }
