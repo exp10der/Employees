@@ -8,6 +8,7 @@
         public MappingProfile()
         {
             CreateMap<Employee, Index.Model>();
+            CreateMap<Create.Command, Employee>();
         }
     }
 }
