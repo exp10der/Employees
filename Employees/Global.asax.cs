@@ -8,6 +8,7 @@
     using Infrastructure.DependencyResolution;
     using Infrastructure.Mapping;
     using StructureMap;
+    using StructureMap.TypeRules;
 
     public class MvcApplication : HttpApplication
     {
@@ -24,6 +25,7 @@
             ViewEngines.Engines.Add(new RazorViewEngine());
 
             AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(() => Container ?? IoC.Container));
@@ -39,6 +41,16 @@
                 cfg.AddRegistry(new MediatorRegistry());
                 cfg.For<ModelValidatorProvider>().Use<FluentValidationModelValidatorProvider>();
                 cfg.For<IValidatorFactory>().Use(new ValidatorFactory(() => Container ?? IoC.Container));
+                cfg.For<IFilterProvider>().Use(new FilterProvider(() => Container ?? IoC.Container));
+                cfg.Policies.SetAllProperties(
+                    sc =>
+                    {
+                        sc.Matching(
+                            p =>
+                                p.DeclaringType.CanBeCastTo(typeof(ActionFilterAttribute)) &&
+                                p.DeclaringType.Namespace.StartsWith("Employees") && !p.PropertyType.IsPrimitive &&
+                                (p.PropertyType != typeof(string)));
+                    });
             });
         }
 
