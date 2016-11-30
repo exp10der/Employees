@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
     using StructureMap;
 
@@ -21,7 +22,7 @@
 
             var container = _container();
 
-            foreach (var filter in filters)
+            foreach (var filter in filters.Concat(GlobalFilters.Filters))
             {
                 container.BuildUp(filter.Instance);
                 yield return filter;
